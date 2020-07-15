@@ -1,0 +1,12 @@
+main: xyz.Cazcez.Namert.Main
+name: Namert
+version: 1.0-SNAPSHOT
+api-version: 1.13
+description: A plugin for basic things
+authors: [Cazcez, mfnalex]
+prefix: Namert
+
+commands:
+	gm:
+		describe: Old gamemode numbers
+	
