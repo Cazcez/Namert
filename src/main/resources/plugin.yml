@@ -5,8 +5,7 @@ api-version: 1.13
 description: A plugin for basic things
 authors: [Cazcez, mfnalex]
 prefix: Namert
-
 commands:
-	gm:
-		describe: Old gamemode numbers
-	
+  gamemode:
+    description: Old gamemode numbers
+    aliases: [gm]
