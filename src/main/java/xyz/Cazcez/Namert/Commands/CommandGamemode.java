@@ -30,7 +30,7 @@ public class CommandGamemode implements CommandExecutor
         throw new IllegalArgumentException();
     }
 
-    GameMode gm2string(GameMode g) {
+    String gm2string(GameMode g) {
         switch(g) {
             case SURVIVAL:
                 return msg.GAMEMODE0;
@@ -48,6 +48,7 @@ public class CommandGamemode implements CommandExecutor
         try {
             g = string2gm(s);
             p.setGameMode(g);
+            p.sendMessage(String.format(msg.GAMEMODE_YOU_ARE_NOW_IN,gm2string(p.getGameMode())));
         } catch(IllegalArgumentException e) {
             p.sendMessage(msg.GAMEMODE_INVALID);
         }
@@ -75,12 +76,20 @@ public class CommandGamemode implements CommandExecutor
     {
         Player p;
         if(args.length==0) {
-            if(sender instanceof Player) {
-                dycleOwnGamemode((Player) sender);
-                return true;
-            } else {
+            if(!(sender instanceof Player)) {
                 sender.sendMessage(msg.MUST_BE_PLAYER);
+                return true;
             }
+            dycleOwnGamemode((Player) sender);
+            return true;
+        }
+
+        if(args.length==1) {
+            if(!(sender instanceof Player)) {
+                sender.sendMessage(msg.MUST_BE_PLAYER);
+                return true;
+            }
+            changeOwnGamemode((Player) sender,args[0]);
         }
 
 
