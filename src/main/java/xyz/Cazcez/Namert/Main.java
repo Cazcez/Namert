@@ -1,6 +1,7 @@
 package xyz.Cazcez.Namert;
 
-import org.bstats.bukkit.Metrics;
+import com.google.inject.Inject;
+import com.google.inject.Injector;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -10,25 +11,27 @@ import xyz.Cazcez.Namert.Commands.CommandGamemode;
 public class Main extends JavaPlugin
 {
 	
-	CommandGamemode commandGamemode;
+	@Inject
+    CommandGamemode commandGamemode;
 
+	@Inject
+    PlayerJoinListener playerJoinListener;
+
+	@Override
     public void onEnable() 
     {
+
+        saveDefaultConfig();
+
+        SimpleBinderModule module = new SimpleBinderModule(this);
+        Injector injector = module.createInjector();
+        injector.injectMembers(this);
+
         createConfig();
-        registerMetrics();
-        getServer().getPluginManager().registerEvents(new EventListener(this),this);
+        getCommand("gamemode").setExecutor(commandGamemode);
         getLogger().info(ChatColor.DARK_PURPLE + "Namert is enabled!");
-        
-
-    }
-
-    void load()
-    {
-    	commandGamemode = new CommandGamemode(this);
-
-    	
-    	getCommand("gm").setExecutor(commandGamemode);
-    	getCommand("gamemode").setExecutor(commandGamemode);
+        System.out.println("Listener registered");
+        getServer().getPluginManager().registerEvents(playerJoinListener,this);
 
     }
     
@@ -42,12 +45,7 @@ public class Main extends JavaPlugin
     {
         saveDefaultConfig();
     }
-    
-    private void registerMetrics()
-    {
-        @SuppressWarnings("unused")
-		Metrics metrics = new Metrics(this , 8198);
-    }
+
 }
 
 

@@ -1,6 +1,5 @@
-config:
-	test: true
-
+join-message: "Herzlichen Glückwunsch %s, du Penner!"
+language: "nazideutsch"
 
 # DO NOT CHANGE
 config-version: 1
