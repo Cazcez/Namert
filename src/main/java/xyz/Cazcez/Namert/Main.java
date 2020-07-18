@@ -6,7 +6,9 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import xyz.Cazcez.Namert.Commands.CommandFly;
 import xyz.Cazcez.Namert.Commands.CommandGamemode;
+import xyz.Cazcez.Namert.Commands.CommandSpeed;
 
 public class Main extends JavaPlugin
 {
@@ -15,7 +17,11 @@ public class Main extends JavaPlugin
     CommandGamemode commandGamemode;
 	
 	@Inject
-    CommandGamemode commandFly;
+    CommandFly commandFly;
+	
+	@Inject
+    CommandSpeed commandSpeed;
+	
 	@Inject
     PlayerJoinListener playerJoinListener;
 
@@ -32,6 +38,7 @@ public class Main extends JavaPlugin
         createConfig();
         getCommand("gamemode").setExecutor(commandGamemode);
         getCommand("fly").setExecutor(commandFly);
+        getCommand("speed").setExecutor(commandSpeed);
         getLogger().info(ChatColor.DARK_PURPLE + "Namert is enabled!");
         System.out.println("Listener registered");
         getServer().getPluginManager().registerEvents(playerJoinListener,this);

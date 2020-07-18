@@ -15,3 +15,7 @@ commands:
   fly:
     description: Basic fly command
     aliases: [flight]    
+    
+commands:
+  speed:
+    description: Basic speed command
