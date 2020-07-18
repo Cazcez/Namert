@@ -7,7 +7,7 @@ public class Messages {
 
     private Main main;
 
-    public final String MUST_BE_PLAYER,GAMEMODE_INVALID,GAMEMODE_YOU_ARE_NOW_IN,GAMEMODE0,GAMEMODE1,GAMEMODE2,GAMEMODE3;
+    public final String PLAYER_DOES_NOT_EXIST,MUST_BE_PLAYER,GAMEMODE_INVALID,GAMEMODE_YOU_ARE_NOW_IN,GAMEMODE0,GAMEMODE1,GAMEMODE2,GAMEMODE3;
 
     @Inject
     Messages(Main main) {
@@ -21,6 +21,8 @@ public class Messages {
         GAMEMODE3 = "spectator mode";
 
         MUST_BE_PLAYER = "You must be a player to run this command.";
+        PLAYER_DOES_NOT_EXIST = "%s is not an existing player.";
+
     }
 
 
