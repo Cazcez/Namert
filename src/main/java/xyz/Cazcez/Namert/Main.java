@@ -13,7 +13,9 @@ public class Main extends JavaPlugin
 	
 	@Inject
     CommandGamemode commandGamemode;
-
+	
+	@Inject
+    CommandGamemode commandFly;
 	@Inject
     PlayerJoinListener playerJoinListener;
 
@@ -29,6 +31,7 @@ public class Main extends JavaPlugin
 
         createConfig();
         getCommand("gamemode").setExecutor(commandGamemode);
+        getCommand("fly").setExecutor(commandFly);
         getLogger().info(ChatColor.DARK_PURPLE + "Namert is enabled!");
         System.out.println("Listener registered");
         getServer().getPluginManager().registerEvents(playerJoinListener,this);

@@ -5,7 +5,13 @@ api-version: 1.13
 description: A plugin for basic things
 authors: [Cazcez, mfnalex]
 prefix: Namert
+
 commands:
   gamemode:
     description: Old gamemode numbers
     aliases: [gm]
+    
+commands:
+  fly:
+    description: Basic fly command
+    aliases: [flight]    
