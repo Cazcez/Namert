@@ -56,10 +56,9 @@ public class CommandFly implements CommandExecutor
 	void SwitchFlyMode(Player p, CommandSender sender, boolean samePerson)
 	{
 		
-        if(p.isFlying())
+        if(p.getAllowFlight())
         {
             p.sendMessage(msg.NOT_FLYING);
-        	p.setAllowFlight(false);
         	p.setFlying(false);
         	
         	if (samePerson==false)
@@ -72,9 +71,7 @@ public class CommandFly implements CommandExecutor
         else
         {
             p.sendMessage(msg.FLYING);
-        	p.setAllowFlight(true);  
         	p.setFlying(true);
-
         	
         	if (samePerson==false)
         		sender.sendMessage(String.format(msg.FLYING_PLAYER, p.getName()));
