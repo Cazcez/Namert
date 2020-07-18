@@ -7,7 +7,7 @@ public class Messages {
 
     private Main main;
 
-    public final String FLYING_PLAYER, NOT_FLYING_PLAYER, FLYING, NOT_FLYING, PLAYER_DOES_NOT_EXIST, MUST_BE_PLAYER,GAMEMODE_INVALID, GAMEMODE_YOU_ARE_NOW_IN, GAMEMODE0, GAMEMODE1, GAMEMODE2, GAMEMODE3;
+    public final String MUST_BE_NUMERIC, NEW_SPEED, NEW_SPEED_PLAYER, FLYING_PLAYER, NOT_FLYING_PLAYER, FLYING, NOT_FLYING, PLAYER_DOES_NOT_EXIST, MUST_BE_PLAYER,GAMEMODE_INVALID, GAMEMODE_YOU_ARE_NOW_IN, GAMEMODE0, GAMEMODE1, GAMEMODE2, GAMEMODE3;
 
     @Inject
     Messages(Main main) {
@@ -21,6 +21,7 @@ public class Messages {
         GAMEMODE3 = "spectator mode";
 
         MUST_BE_PLAYER = "You must be a player to run this command.";
+        MUST_BE_NUMERIC = "Must be numeric.";
         PLAYER_DOES_NOT_EXIST = "%s is not an existing player.";
         
         FLYING = "You are flying now!";
@@ -29,6 +30,9 @@ public class Messages {
         FLYING_PLAYER = "%s is flying now!";
         NOT_FLYING_PLAYER = "%s is not flying anymore!";        
 
+        NEW_SPEED = "Your speed is %s";
+        
+        NEW_SPEED_PLAYER = "%s's new speed is %s";
     }
 
 
